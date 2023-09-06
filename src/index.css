@@ -54,15 +54,16 @@ ul {
 }
 
 .task-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center content horizontally */
-  text-align: center; /* Center text within div */
-  margin-bottom: 8px; /* Adjust as needed for spacing between task and timestamp */
+  display: inline-flex;
+  flex-direction: row;
 }
 
 .task-date {
   font-size: small;
+}
+
+.completed {
+  text-decoration: line-through;
 }
 
 .task-list {
@@ -75,4 +76,12 @@ ul {
 
 .time {
   color: #838383;
+}
+
+.form-check-input {
+  margin-right: 10px;
+}
+
+.form-check-input[type='checkbox']:checked {
+  background-color: #5660ee !important;
 }

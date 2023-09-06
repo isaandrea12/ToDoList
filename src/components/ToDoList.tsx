@@ -4,7 +4,7 @@ import { FaTrash } from "react-icons/fa";
 const ToDoList = () => {
   const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useState<
-    { task: string; timestamp: string }[]
+    { task: string; timestamp: string; completed: boolean }[]
   >([]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -31,6 +31,17 @@ const ToDoList = () => {
     setTodoList(updatedList);
   };
 
+  const handleTaskCompletionToggle = (indexToToggle: number) => {
+    const updatedList = todoList.map((task, index) => {
+      if (index === indexToToggle) {
+        return { ...task, completed: !task.completed };
+      } else {
+        return task;
+      }
+    });
+    setTodoList(updatedList);
+  };
+
   const handleEnterKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter" && inputValue.trim() !== "") {
       // Prevent the form from actually submitting, which is the default behavior
@@ -42,7 +53,7 @@ const ToDoList = () => {
   return (
     <div className="container">
       <h1 className="title">To-Do List</h1>
-      <div className="input-group mb-3">
+      <div className="input-group m-3 p-3">
         <input
           style={{ marginTop: "0" }}
           value={inputValue}
@@ -67,18 +78,33 @@ const ToDoList = () => {
       >
         <ul className="task-list p-3">
           {todoList.map((item, index) => (
-            <div className="card task-card p-3 m-3">
-              <li className="d-flex justify-content-between" key={index}>
+            <div className="card task-card p-3 m-3" key={index}>
+              <li className="d-flex justify-content-between">
                 <div className="task-info">
-                  <div>{item.task}</div>
-                  <div className="task-date">{item.timestamp}</div>
+                  <div>
+                    <input
+                      className="form-check-input"
+                      value=""
+                      aria-label="..."
+                      id="checkboxNoLabel"
+                      type="checkbox"
+                      checked={item.completed}
+                      onChange={() => handleTaskCompletionToggle(index)}
+                    />
+                  </div>
+                  <div
+                    className={`task-text ${item.completed ? "completed" : ""}`}
+                  >
+                    {item.task}
+                  </div>
+                  {/* <div className="task-date">{item.timestamp}</div> */}
                 </div>
                 <button
                   type="button"
-                  className="btn btn-delete btn-sm ms-2 mr-5"
+                  className="btn btn-delete btn-sm"
                   onClick={() => handleDeleteTask(index)}
                 >
-                  <FaTrash className="fa-trash"></FaTrash>
+                  <FaTrash className="fa-trash" />
                 </button>
               </li>
             </div>

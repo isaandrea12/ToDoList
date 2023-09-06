@@ -1,0 +1,55 @@
+.container {
+  background-color: #f8f8ff;
+  padding: 30px;
+  margin-top: 50px;
+  border-radius: 20px;
+}
+
+.font-family {
+  font-family: 'Roboto', sans-serif;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  color: #797fba;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+}
+
+.btn-primary {
+  background-color: #646eef !important;
+  color: white;
+  margin-top: 25px; 
+  margin-bottom: 30px;
+}
+
+.btn-delete {
+  background-color: #ededed !important;
+}
+
+.btn-primary:hover {
+  background-color: #5660ee !important; 
+}
+
+ul {
+  list-style-type: none;
+}
+
+.form-control {
+  margin-top: 40px;
+  width: 50px;
+}
+
+.card {
+  height: 900px;
+  overflow: auto;
+}
+
+.task-list {
+  color: #585c5e;
+}
+
+.fa-trash {
+  color: #585858;
+}

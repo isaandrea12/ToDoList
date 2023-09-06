@@ -39,6 +39,7 @@ ul {
 .form-control {
   margin-top: 40px;
   width: 50px;
+  color: #414344 !important;
 }
 
 .card-main {

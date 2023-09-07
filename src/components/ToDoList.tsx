@@ -4,25 +4,17 @@ import { FaTrash } from "react-icons/fa";
 const ToDoList = () => {
   const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useState<
-    { task: string; timestamp: string; completed: boolean }[]
+    { task: string; completed: boolean }[]
   >([]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
-  const getCurrentTimestamp = () => {
-    const now = new Date();
-    const formattedDate = now.toLocaleDateString();
-    const formattedTime = now.toLocaleTimeString();
-    return `${formattedDate} ${formattedTime}`;
-  };
-
   const handleAddTask = () => {
     if (inputValue.trim() !== "") {
       const newTask = {
         task: inputValue,
-        timestamp: getCurrentTimestamp(),
         completed: false,
       };
       const arr = [...todoList, newTask];
@@ -102,7 +94,6 @@ const ToDoList = () => {
                   >
                     {item.task}
                   </div>
-                  {/* <div className="task-date">{item.timestamp}</div> */}
                 </div>
                 <button
                   type="button"

@@ -32,6 +32,10 @@
   background-color: #5660ee !important; 
 }
 
+.btn-primary:active {
+  background-color: #3642e8 !important; /* Change this to your desired active color */
+}
+
 ul {
   list-style-type: none;
 }
@@ -40,6 +44,12 @@ ul {
   margin-top: 40px;
   width: 50px;
   color: #414344 !important;
+}
+
+input:focus, input.form-control:focus {
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
 }
 
 .card-main {
@@ -81,6 +91,7 @@ ul {
 
 .form-check-input {
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .form-check-input[type='checkbox']:checked {

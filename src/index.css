@@ -46,6 +46,10 @@ ul {
   color: #414344 !important;
 }
 
+.input-taller {
+  height: 45px;
+}
+
 input:focus, input.form-control:focus {
   outline:none !important;
   outline-width: 0 !important;
@@ -96,4 +100,13 @@ input:focus, input.form-control:focus {
 
 .form-check-input[type='checkbox']:checked {
   background-color: #5660ee !important;
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+  }
 }

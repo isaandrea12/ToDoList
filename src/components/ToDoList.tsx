@@ -1,5 +1,5 @@
 import { ChangeEvent, KeyboardEvent, useState } from "react";
-import { FaTrash, FaCheckDouble } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 const ToDoList = () => {
   const [inputValue, setInputValue] = useState("");
@@ -54,31 +54,26 @@ const ToDoList = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container mt-5 p-4">
       <h1 className="title pt-4">To-Do List</h1>
       <div className="input-group px-4 my-5">
         <input
-          style={{ marginTop: "0" }}
           value={inputValue}
           type="text"
-          className="form-control input-taller border-0"
+          className="form-control input-taller border-0 mt-0"
           placeholder="Add Task..."
           onChange={handleInputChange}
           onKeyPress={handleEnterKeyPress}
         />
         <button
-          style={{ margin: "0" }}
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary m-0"
           onClick={() => handleAddTask()}
         >
           Add
         </button>
       </div>
-      <div
-        className="card card-main border-0 m-4"
-        style={{ height: "400px", overflowY: "auto" }}
-      >
+      <div className="card card-main border-0 m-4" style={{ height: "400px" }}>
         <ul className="task-list p-3">
           {todoList.map((item, index) => (
             <div className="card task-card p-3 m-3" key={index}>

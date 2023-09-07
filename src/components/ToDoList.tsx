@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 
@@ -7,25 +6,6 @@ const ToDoList = () => {
   const [todoList, setTodoList] = useState<
     { task: string; completed: boolean }[]
   >([]);
-
-  const container = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const child = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -103,13 +83,7 @@ const ToDoList = () => {
       <div className="card card-main border-0 m-4" style={{ height: "400px" }}>
         <ul className="task-list p-3">
           {sortedTodoList.map((item, index) => (
-            <motion.div
-              className="card task-card p-3 m-3"
-              key={index}
-              variants={child}
-              initial="hidden"
-              animate="visible"
-            >
+            <div className="card task-card p-3 m-3" key={index}>
               <li className="d-flex justify-content-between">
                 <div className="task-info">
                   <div>
@@ -137,7 +111,7 @@ const ToDoList = () => {
                   <FaTrash className="fa-trash" />
                 </button>
               </li>
-            </motion.div>
+            </div>
           ))}
         </ul>
       </div>

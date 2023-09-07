@@ -20,12 +20,17 @@ const ToDoList = () => {
 
   const handleAddTask = () => {
     if (inputValue.trim() !== "") {
-      const newTask = { task: inputValue, timestamp: getCurrentTimestamp() };
+      const newTask = {
+        task: inputValue,
+        timestamp: getCurrentTimestamp(),
+        completed: false,
+      };
       const arr = [...todoList, newTask];
       setTodoList(arr);
       setInputValue("");
     }
   };
+
   const handleDeleteTask = (indexToDelete: number) => {
     const updatedList = todoList.filter((_, index) => index !== indexToDelete);
     setTodoList(updatedList);

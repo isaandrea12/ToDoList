@@ -68,12 +68,9 @@ input:focus, input.form-control:focus {
   flex-direction: row;
 }
 
-.task-date {
-  font-size: small;
-}
-
 .completed {
   text-decoration: line-through;
+  color: #b6b6b7;
 }
 
 .task-list {

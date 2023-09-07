@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 
@@ -6,6 +7,25 @@ const ToDoList = () => {
   const [todoList, setTodoList] = useState<
     { task: string; completed: boolean }[]
   >([]);
+
+  const container = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const child = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -45,6 +65,13 @@ const ToDoList = () => {
     setTodoList(updatedList);
   };
 
+  const sortedTodoList = todoList.sort((a, b) => {
+    // Place completed tasks at the end
+    if (a.completed && !b.completed) return 1;
+    if (!a.completed && b.completed) return -1;
+    return 0;
+  });
+
   const handleEnterKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter" && inputValue.trim() !== "") {
       // Prevent the form from actually submitting, which is the default behavior
@@ -75,8 +102,14 @@ const ToDoList = () => {
       </div>
       <div className="card card-main border-0 m-4" style={{ height: "400px" }}>
         <ul className="task-list p-3">
-          {todoList.map((item, index) => (
-            <div className="card task-card p-3 m-3" key={index}>
+          {sortedTodoList.map((item, index) => (
+            <motion.div
+              className="card task-card p-3 m-3"
+              key={index}
+              variants={child}
+              initial="hidden"
+              animate="visible"
+            >
               <li className="d-flex justify-content-between">
                 <div className="task-info">
                   <div>
@@ -104,7 +137,7 @@ const ToDoList = () => {
                   <FaTrash className="fa-trash" />
                 </button>
               </li>
-            </div>
+            </motion.div>
           ))}
         </ul>
       </div>

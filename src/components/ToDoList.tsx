@@ -1,5 +1,5 @@
 import { ChangeEvent, KeyboardEvent, useState } from "react";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaCheckDouble } from "react-icons/fa";
 
 const ToDoList = () => {
   const [inputValue, setInputValue] = useState("");
@@ -36,6 +36,12 @@ const ToDoList = () => {
         return task;
       }
     });
+
+    // Sort the updated list so completed tasks are at the bottom
+    updatedList.sort((a, b) =>
+      a.completed === b.completed ? 0 : a.completed ? 1 : -1
+    );
+
     setTodoList(updatedList);
   };
 
@@ -49,14 +55,14 @@ const ToDoList = () => {
 
   return (
     <div className="container">
-      <h1 className="title">To-Do List</h1>
-      <div className="input-group m-3 p-3">
+      <h1 className="title pt-4">To-Do List</h1>
+      <div className="input-group px-4 my-5">
         <input
           style={{ marginTop: "0" }}
           value={inputValue}
           type="text"
-          className="form-control border-0"
-          placeholder="What is the task today?"
+          className="form-control input-taller border-0"
+          placeholder="Add Task..."
           onChange={handleInputChange}
           onKeyPress={handleEnterKeyPress}
         />
@@ -66,7 +72,7 @@ const ToDoList = () => {
           className="btn btn-primary"
           onClick={() => handleAddTask()}
         >
-          Add Task
+          Add
         </button>
       </div>
       <div

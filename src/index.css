@@ -111,9 +111,6 @@ input:focus, input.form-control:focus {
     margin: 0; 
   }
   .card-main {
-    height: 200px !important;
-  }
-  .task-text {
-    margin-right: 30px;
+    height: 350px !important;
   }
 }

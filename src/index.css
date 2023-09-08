@@ -67,6 +67,14 @@ input:focus, input.form-control:focus {
 .task-info {
   display: inline-flex;
   flex-direction: row;
+  white-space: nowrap;
+  overflow-x: auto;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.task-text {
+  margin-right: 30px;
 }
 
 .completed {
@@ -87,7 +95,7 @@ input:focus, input.form-control:focus {
 }
 
 .form-check-input {
-  margin-right: 10px; 
+  margin: 10px 10px; 
   cursor: pointer;
 }
 

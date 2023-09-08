@@ -61,7 +61,7 @@ const ToDoList = () => {
   };
 
   return (
-    <div className="container mt-5 p-4">
+    <div className="container p-4">
       <h1 className="title pt-4">To-Do List</h1>
       <div className="input-group px-4 my-5">
         <input
@@ -80,7 +80,7 @@ const ToDoList = () => {
           Add
         </button>
       </div>
-      <div className="card card-main border-0 m-4" style={{ height: "400px" }}>
+      <div className="card card-main border-0 m-4">
         <ul className="task-list p-3">
           {sortedTodoList.map((item, index) => (
             <div className="card task-card p-3 m-3" key={index}>

@@ -1,6 +1,7 @@
 .container {
   background-color: #f8f8ff;
   border-radius: 20px;
+  margin-top: 50px;
 }
 
 .font-family {
@@ -52,7 +53,7 @@ input:focus, input.form-control:focus {
 }
 
 .card-main {
-  height: 400px;
+  height: 400px !important;
   overflow-y: auto;
   background-color: #ededf7 !important;
 }
@@ -98,7 +99,10 @@ input:focus, input.form-control:focus {
   .container {
     height: 100vh;
     width: 100vw;
-    margin: 0px;
-    padding: 0px;
+    padding: 0; 
+    margin: 0; 
+  }
+  .card-main {
+    height: 200px !important;
   }
 }

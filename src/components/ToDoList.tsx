@@ -1,11 +1,25 @@
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
 
 const ToDoList = () => {
+  const storedValue = localStorage.getItem("todo");
   const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useState<
     { task: string; completed: boolean }[]
-  >([]);
+  >(storedValue && JSON.parse(storedValue));
+
+  // Save tasks to localStorage
+  useEffect(() => {
+    localStorage.setItem("todo", JSON.stringify(todoList));
+  }, [todoList]);
+
+  // Load tasks from localStorage
+  useEffect(() => {
+    if (storedValue !== null) {
+      const retrievedValue = JSON.parse(storedValue);
+      setTodoList(retrievedValue);
+    }
+  }, []);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -86,7 +100,7 @@ const ToDoList = () => {
             <div className="card task-card p-3 m-3" key={index}>
               <li className="d-flex justify-content-between">
                 <div className="task-info">
-                  <div>
+                  <div className="">
                     <input
                       className="form-check-input"
                       value=""

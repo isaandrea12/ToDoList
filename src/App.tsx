@@ -1,7 +1,28 @@
 import ToDoList from "./components/ToDoList";
 
 function App() {
-  return <ToDoList></ToDoList>;
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <div>
+      <ToDoList></ToDoList>
+      <footer className="footer">
+        <strong>
+          <p>
+            &copy;{currentYear}{" "}
+            <a
+              href="https://github.com/isaandrea12"
+              className="containerLink"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Isabel Muñiz
+            </a>
+          </p>
+        </strong>
+      </footer>
+    </div>
+  );
 }
 
 export default App;

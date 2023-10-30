@@ -2,6 +2,7 @@
   background-color: #f8f8ff;
   border-radius: 20px;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .font-family {
@@ -15,6 +16,25 @@
   font-family: 'Roboto', sans-serif;
   font-weight: bolder;
 }
+
+.footer {
+  width: 200px;
+  border-radius: 30px;
+  background-color: #f8f9fe;
+  color: #797fbb;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
+}
+
+.containerLink {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
 
 .btn-primary {
   background-color: #646eef !important;

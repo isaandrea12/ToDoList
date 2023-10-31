@@ -27,15 +27,19 @@
   justify-content: center;
   align-items: center;
   text-align: center; 
+  cursor: pointer;
 }
 
 .footer p {
   margin: 15px;
 }
 
+.footer:hover {
+  background-color: #ededf7;
+}
+
 .containerLink {
   text-decoration: none;
-  cursor: pointer;
   color: inherit;
 }
 

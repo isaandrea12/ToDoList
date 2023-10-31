@@ -11,7 +11,7 @@ function App() {
           <p>
             &copy;{currentYear}{" "}
             <a
-              href="https://github.com/isaandrea12"
+              href="https://github.com/isaandrea12/ToDoList"
               className="containerLink"
               target="_blank"
               rel="noreferrer"

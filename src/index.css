@@ -29,6 +29,10 @@
   text-align: center; 
 }
 
+.footer p {
+  margin: 15px;
+}
+
 .containerLink {
   text-decoration: none;
   cursor: pointer;

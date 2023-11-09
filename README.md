@@ -2,6 +2,6 @@
 
 npm run dev
 
-# Hosted on Nettlify
+# Hosted on Netlify
 
 [todolyst.netlify.com](todolyst.netlify.com)

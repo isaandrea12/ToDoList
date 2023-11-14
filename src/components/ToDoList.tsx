@@ -3,10 +3,9 @@ import { FaTrash } from "react-icons/fa";
 
 interface ToDoListProps {
   isDarkMode: boolean;
-  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ToDoList: React.FC<ToDoListProps> = ({ isDarkMode, setIsDarkMode }) => {
+const ToDoList: React.FC<ToDoListProps> = ({ isDarkMode }) => {
   const storedValue = localStorage.getItem("todo");
   const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useState<

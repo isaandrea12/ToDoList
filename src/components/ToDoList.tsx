@@ -1,7 +1,12 @@
 import { ChangeEvent, KeyboardEvent, useState, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
 
-const ToDoList = () => {
+interface ToDoListProps {
+  isDarkMode: boolean;
+  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ToDoList: React.FC<ToDoListProps> = ({ isDarkMode, setIsDarkMode }) => {
   const storedValue = localStorage.getItem("todo");
   const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useState<
@@ -75,13 +80,15 @@ const ToDoList = () => {
   };
 
   return (
-    <div className="container p-4">
+    <div className={`container p-4 ${isDarkMode ? "dark-main-container" : ""}`}>
       <h1 className="title pt-4">To-Do List</h1>
       <div className="input-group px-4 my-5">
         <input
           value={inputValue}
           type="text"
-          className="form-control input-taller border-0 mt-0"
+          className={`form-control input-taller border-0 mt-0 ${
+            isDarkMode ? "dark-input" : ""
+          }`}
           placeholder="Add Task..."
           onChange={handleInputChange}
           onKeyPress={handleEnterKeyPress}
@@ -94,11 +101,23 @@ const ToDoList = () => {
           Add
         </button>
       </div>
-      <div className="card card-main border-0 m-4">
-        <ul className="task-list p-3">
+      <div
+        className={`card card-main border-0 m-4 ${
+          isDarkMode ? "dark-card-main" : ""
+        }`}
+      >
+        <ul
+          className={`task-list p-3 ${
+            isDarkMode ? "dark-tasks-container" : ""
+          }`}
+        >
           {sortedTodoList.map((item, index) => (
-            <div className="card task-card p-3 m-3" key={index}>
-              <li className="d-flex justify-content-between">
+            <div className="card task-card m-3" key={index}>
+              <li
+                className={`d-flex justify-content-between p-3 ${
+                  isDarkMode ? "dark-task" : ""
+                }`}
+              >
                 <div className="task-info">
                   <div className="">
                     <input
@@ -119,10 +138,14 @@ const ToDoList = () => {
                 </div>
                 <button
                   type="button"
-                  className="btn btn-delete btn-sm"
+                  className={`btn btn-delete btn-sm ${
+                    isDarkMode ? "dark-button" : ""
+                  }`}
                   onClick={() => handleDeleteTask(index)}
                 >
-                  <FaTrash className="fa-trash" />
+                  <FaTrash
+                    className={`fa-trash ${isDarkMode ? "dark-fa-trash" : ""}`}
+                  />
                 </button>
               </li>
             </div>

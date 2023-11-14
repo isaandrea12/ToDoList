@@ -1,28 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ToDoList from "./components/ToDoList";
 
 function App() {
   const currentYear = new Date().getFullYear();
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(
+    Boolean(localStorage.getItem("darkMode"))
+  );
+
+  // Save dark mode preference to localStorage
+  useEffect(() => {
+    const storedDarkMode = localStorage.getItem("darkMode") || "false";
+    localStorage.setItem(
+      "darkMode",
+      storedDarkMode === "false" ? "true" : "false"
+    );
+    setIsDarkMode(JSON.parse(storedDarkMode));
+  }, []);
 
   const toggleDarkMode = () => {
-    setIsDarkMode((prevMode) => !prevMode);
+    const storedDarkMode = localStorage.getItem("darkMode") || "false";
+    localStorage.setItem(
+      "darkMode",
+      storedDarkMode === "false" ? "true" : "false"
+    );
+    setIsDarkMode(JSON.parse(storedDarkMode));
   };
 
   return (
-    <div className={`App ${isDarkMode ? "dark-mode" : ""}`}>
-      <div className="form-check form-switch">
-        <input
-          onClick={toggleDarkMode}
-          className="form-check-input"
-          type="checkbox"
-          role="switch"
-          id="flexSwitchCheckDefault"
-        />
-        <label className="form-check-label">Dark Mode</label>
+    <div className={`${!isDarkMode ? "dark-background" : ""}`}>
+      <span className="toggle-title">Dark Mode</span>
+      <div className="toggle-container">
+        <label className="toggle-switch">
+          <input
+            type="checkbox"
+            checked={!isDarkMode}
+            onChange={toggleDarkMode}
+          />
+          <span className="switch" />
+        </label>
       </div>
-      <ToDoList></ToDoList>
-      <footer className="footer">
+      <ToDoList isDarkMode={!isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <footer className={`footer ${!isDarkMode ? "dark-footer" : ""}`}>
         <strong>
           <p>
             &copy;{currentYear}{" "}

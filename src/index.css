@@ -38,11 +38,71 @@
   background-color: #ededf7;
 }
 
+/* Toggle Switch */
+
+.toggle-title {
+  position: absolute; 
+  top: 10px;
+  right: 70px; 
+}
+
+.toggle-container {
+  padding-top: 20px;
+}
+
+.toggle-switch {
+  display: inline-block;
+  width: 50px; 
+  height: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px; 
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: background-color 0.4s;
+  border-radius: 25px;
+}
+
+.switch:before {
+  position: absolute;
+  content: "";
+  height: 20px; 
+  width: 20px; 
+  left: 2.5px; 
+  bottom: 2.5px; 
+  background-color: white;
+  transition: transform 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .switch {
+  background-color: #5560ee;
+}
+
+input:checked + .switch:before {
+  transform: translateX(25px);
+}
+
+
+
 .containerLink {
   text-decoration: none;
   color: inherit;
 }
-
 
 .btn-primary {
   background-color: #646eef !important;
@@ -61,8 +121,43 @@
   background-color: #3642e8 !important; /* Change this to your desired active color */
 }
 
-.dark-mode {
-  /* background-color: #292929; */
+.dark-background {
+  background-color: #292929;
+  color: white;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.dark-main-container {
+  background-color: #3d3d3d;
+}
+
+.dark-tasks-container {
+  background-color: #535353;
+  height: 100vh;
+}
+
+.dark-task {
+  border: none;
+  background-color: #3d3d3d;
+  color: white;
+}
+
+.dark-button {
+  background-color: #535353 !important;
+}
+
+.dark-fa-trash {
+  color: #646fef !important;
+}
+
+.dark-input {
+  background-color: #535353 !important;
+  /* color: white !important; */
+}
+
+.dark-footer {
+  background-color: #535353;
 }
 
 ul {
@@ -85,9 +180,15 @@ input:focus, input.form-control:focus {
 }
 
 .card-main {
-  height: 400px !important;
-  overflow-y: auto;
+  height: 340px !important;
+  overflow-y: scroll;
   background-color: #ededf7 !important;
+}
+
+.dark-card-main {
+  background-color: #535352 !important;
+  height: 340px !important;
+  overflow-y: scroll;
 }
 
 .task-card {
@@ -131,6 +232,11 @@ input:focus, input.form-control:focus {
   cursor: pointer;
 }
 
+.toggle-button {
+  display: flex !important;
+  justify-content: end;
+}
+
 .form-check-input[type='checkbox']:checked {
   background-color: #5660ee !important;
 }
@@ -146,3 +252,9 @@ input:focus, input.form-control:focus {
     height: 350px !important;
   }
 }
+/* 
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #323232;
+  }
+} */

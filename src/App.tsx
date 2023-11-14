@@ -39,7 +39,7 @@ function App() {
           <span className="switch" />
         </label>
       </div>
-      <ToDoList isDarkMode={!isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <ToDoList isDarkMode={!isDarkMode} />
       <footer className={`footer ${!isDarkMode ? "dark-footer" : ""}`}>
         <strong>
           <p>

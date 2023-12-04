@@ -12,7 +12,7 @@ function App() {
     const storedDarkMode = localStorage.getItem("darkMode") || "false";
     localStorage.setItem(
       "darkMode",
-      storedDarkMode === "false" ? "true" : "false"
+      storedDarkMode === "true" ? "true" : "false"
     );
     setIsDarkMode(JSON.parse(storedDarkMode));
   }, []);

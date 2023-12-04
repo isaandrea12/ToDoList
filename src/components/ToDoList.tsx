@@ -6,7 +6,9 @@ interface ToDoListProps {
 }
 
 const ToDoList: React.FC<ToDoListProps> = ({ isDarkMode }) => {
-  const storedValue = localStorage.getItem("todo") || "[]";
+  const storedValue = localStorage.getItem("todo")
+    ? localStorage.getItem("todo")
+    : "[]";
   const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useState<
     { task: string; completed: boolean }[]
